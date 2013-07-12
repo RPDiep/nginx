@@ -1019,6 +1019,9 @@ transparent:
                 } else if (ngx_strcmp(conf->watermark_position.data, "bottom-left") == 0) {
                     wdx = 10;
                     wdy = dy - watermark->sy - 10;
+                } else if (ngx_strcmp(conf->watermark_position.data, "center") == 0) {
+                    wdx = dx / 2 - watermark->sx / 2;
+                    wdy = dy / 2 - watermark->sy / 2;
                 }
 
                 gdImageCopy(watermark_mix, dst, 0, 0, wdx, wdy, watermark->sx, watermark->sy);
